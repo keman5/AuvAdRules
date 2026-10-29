@@ -19,7 +19,7 @@ previous published versions. Failed updates leave the published list unchanged.
 
 | App | Evidence | Acceptance status |
 | --- | --- | --- |
-| 闲鱼 | Baseline includes advertising / telemetry domains; no captured current-version splash request attributed here | Not device-verified |
+| 闲鱼 | [Public path-rewrite reference](https://github.com/fmz200/wool_scripts/blob/main/Surge/module/split/partX/XianYu.sgmodule) targets `acs.m.goofish.com/gw/mtop.taobao.idlecommerce.splash.ads`; the same host also serves other app APIs | DNS cannot selectively block this path; not device-verified |
 | 京东 | Baseline includes domains such as `ads-union.jd.com` and `addata.jd.com`; domain presence alone does not prove splash removal | Not device-verified |
 | 爱思助手 | [Public URL-rewrite reference](https://github.com/fmz200/wool_scripts/blob/main/Surge/module/split/partA/AiSiAssistant.sgmodule) targets `list-app-m.i4.cn/getopfstadinfo.xhtml` | DNS cannot distinguish this path from other services on that host; no broad custom block added |
 
