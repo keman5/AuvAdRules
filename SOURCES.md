@@ -1,19 +1,24 @@
 # Sources and licensing
 
-The baseline is [HaGeZi Multi NORMAL](https://github.com/hagezi/dns-blocklists),
-`adblock/multi.txt`, distributed under GPL-3.0. The complete license is included
-in `LICENSE`. HaGeZi's underlying source acknowledgements and attribution are
-maintained in [its README](https://github.com/hagezi/dns-blocklists/blob/main/README.md).
-This repository's scripts, custom rules and combined output are also GPL-3.0.
+This repository publishes **supplemental rules only**, not a merged copy of
+AdRules or HaGeZi Normal. Enable both baseline subscriptions independently:
 
-The baseline corresponds to the Normal list offered as `filter_34` by AdGuard's
-HostlistsRegistry. Rule counts and revisions may differ between refresh times.
-Do not enable both copies solely to increase coverage; identical rules add no
-coverage.
+- AdRules: https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt
+- HaGeZi Normal: https://adguardteam.github.io/HostlistsRegistry/assets/filter_34.txt
 
-Each successful build records the fetched source URL, SHA-256, rule counts,
-output SHA-256 and check time in `filters/manifest.json`. Git history retains
-previous published versions. Failed updates leave the published list unchanged.
+The generator downloads those exact lists only to remove already-covered custom
+domains. Source URLs, hashes, plain domain counts and counts of other syntax are
+recorded in `filters/manifest.json`; baseline contents are not in the output.
+Exact and parent-domain matches of the same rule type are compared. Regex and
+modifier-based coverage must be checked in the DNS engine before adding rules.
+
+The scripts and custom additions are GPL-3.0; see `LICENSE`. Earlier commits
+published a full HaGeZi Normal copy under its GPL-3.0 license; that historical
+attribution remains applicable. HaGeZi's source acknowledgements are available
+in [its README](https://github.com/hagezi/dns-blocklists/blob/main/README.md).
+
+There are currently **no verified custom additions**. An empty supplement does
+not replace the baseline lists and does not add splash-ad coverage.
 
 ## App-specific evidence
 

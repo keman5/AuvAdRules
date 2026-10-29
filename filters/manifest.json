@@ -1,10 +1,23 @@
 {
-  "checked_at_utc": "2026-10-29T00:51:33Z",
-  "source": "https://raw.githubusercontent.com/hagezi/dns-blocklists/main/adblock/multi.txt",
-  "source_sha256": "a3f3d67af07d9bdd8c033fc980cfeb7360b39771db9662d34de554b3bf7387a7",
-  "source_rules": 172000,
+  "mode": "supplement-only",
+  "checked_at_utc": "2026-10-29T02:24:43Z",
+  "baselines": {
+    "adrules": {
+      "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt",
+      "sha256": "b1e170db5a5a69bb4a38633fc41eb8115acf4c14b467687af376ce705919fe57",
+      "domain_rules": 204436,
+      "other_rules_not_compared": 436
+    },
+    "hagezi": {
+      "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_34.txt",
+      "sha256": "f2a280cb591397a6ebdae1e1f76bf3b937347d0f694cc58a781ff762ed9eff11",
+      "domain_rules": 172000,
+      "other_rules_not_compared": 0
+    }
+  },
   "custom_rules": 0,
-  "published_rules": 172000,
-  "published_sha256": "9a51d158b87d9889928dda64446505158c95ef51851d25c090c0d1562e8e395f",
+  "already_covered_rules": 0,
+  "published_rules": 0,
+  "published_sha256": "914c21f276ca5bcbc297ff8a7cdb7d027abfbf8a9f0183a996f196670310ca76",
   "device_ad_removal_verified": false
 }

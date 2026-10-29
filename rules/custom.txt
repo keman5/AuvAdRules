@@ -1,5 +1,5 @@
-! AuvAdRules local additions; merged into filters/dns.txt.
-! Only reviewed domain rules belong here: ||ads.example.org^
-! Exceptions: @@||needed.example.org^
-! No user browsing logs, credentials, private hostnames or URL rewrite rules.
-! No device-verified additions yet. Upstream baseline remains active.
+! Reviewed additions beyond AdRules filter_29 and HaGeZi Normal filter_34.
+! Only domain rules: ||ads.example.org^ or exceptions: @@||needed.example.org^
+! Baseline-covered domains are removed when generating filters/dns.txt.
+! No logs, credentials, private hostnames or URL rewrite rules.
+! No device-verified additions yet. Enable both baseline subscriptions separately.
