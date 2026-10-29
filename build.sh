@@ -21,5 +21,11 @@ case "${1:-test}" in
     git remote get-url origin >/dev/null 2>&1 || git remote add origin https://github.com/keman5/AuvAdRules.git
     git push -u origin main
     ;;
-  *) echo 'Usage: bash build.sh test|update [--source-file PATH]|publish' >&2; exit 2 ;;
+  pages)
+    gh api repos/keman5/AuvAdRules/pages --jq .html_url 2>/dev/null || \
+      gh api repos/keman5/AuvAdRules/pages --method POST --input - <<'JSON'
+{"build_type":"legacy","source":{"branch":"main","path":"/"}}
+JSON
+    ;;
+  *) echo 'Usage: bash build.sh test|update [--source-file PATH]|publish|pages' >&2; exit 2 ;;
 esac
