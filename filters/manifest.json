@@ -1,6 +1,6 @@
 {
   "mode": "supplement-only",
-  "checked_at_utc": "2026-10-29T02:24:43Z",
+  "checked_at_utc": "2026-10-29T02:26:26Z",
   "baselines": {
     "adrules": {
       "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt",
