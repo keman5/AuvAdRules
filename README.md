@@ -4,11 +4,20 @@
 基于 HaGeZi Normal，合并本仓库经复验的自定义域名规则。当前自定义增补为空；
 首版提供统一维护、更新和发布，不宣称比 Normal 多覆盖了开屏广告。
 
-订阅地址（两端相同）：
+推荐订阅地址（两端相同；GitHub Pages）：
+
+```text
+https://keman5.github.io/AuvAdRules/filters/dns.txt
+```
+
+Raw 备用地址（部分网络可能无法直连）：
 
 ```text
 https://raw.githubusercontent.com/keman5/AuvAdRules/main/filters/dns.txt
 ```
+
+两个地址发布相同规则，只订阅其中一个。Pages 发布可能比仓库提交晚数分钟；
+Raw 更新不依赖 Pages 部署完成，切换地址前应确认设备能下载。
 
 使用原生 `||domain^` / `@@||domain^` 语法，无仅限 A 查询的限制，适用于 A、AAAA
 及其他 DNS 查询类型。IPv6 是否真正经过过滤，还取决于设备的 DNS 路由。
