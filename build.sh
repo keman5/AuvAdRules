@@ -27,5 +27,9 @@ case "${1:-test}" in
 {"build_type":"legacy","source":{"branch":"main","path":"/"}}
 JSON
     ;;
-  *) echo 'Usage: bash build.sh test|update [--source-file PATH]|publish|pages' >&2; exit 2 ;;
+  pages-build)
+    # GITHUB_TOKEN commits do not automatically trigger a branch-based Pages build.
+    gh api repos/keman5/AuvAdRules/pages/builds --method POST
+    ;;
+  *) echo 'Usage: bash build.sh test|update [--source-file PATH]|publish|pages|pages-build' >&2; exit 2 ;;
 esac
