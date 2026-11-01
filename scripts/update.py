@@ -17,7 +17,7 @@ BASELINES = {
 }
 MAX_BYTES = 32 * 1024 * 1024
 LABEL = r'[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?'
-RULE = re.compile(r'(?:@@)?\|\|(' + LABEL + r'(?:\.' + LABEL + r')+)\^')
+RULE = re.compile(r'(?:@@)?\|\|(' + LABEL + r'(?:\.' + LABEL + r')+)\^(\$important)?')
 
 
 def parse(content):
@@ -64,8 +64,8 @@ def parse_baseline(raw):
     content = raw.decode('utf-8-sig')
     if '<html' in content.lower() or '<!doctype' in content.lower():
         raise ValueError('Baseline returned HTML')
-    # Baselines may contain regex and modifiers. Only plain domain rules are
-    # used for automatic deduplication; other syntax requires engine review.
+    # Compare domain rules with optional $important. Other modifiers and
+    # regex require engine review.
     lines = [line.strip() for line in content.splitlines()
              if line.strip() and not line.startswith('!') and line != '[Adblock Plus]']
     domains = {line for line in lines if RULE.fullmatch(line)}
@@ -77,8 +77,11 @@ def parse_baseline(raw):
 def supplement(custom, baseline):
     def covered(rule):
         prefix = '@@||' if rule.startswith('@@') else '||'
-        labels = RULE.fullmatch(rule)[1].split('.')
-        return any(prefix + '.'.join(labels[i:]) + '^' in baseline
+        match = RULE.fullmatch(rule)
+        labels = match[1].split('.')
+        # Never let a normal baseline rule erase a priority override.
+        modifier = match[2] or ''
+        return any(prefix + '.'.join(labels[i:]) + '^' + modifier in baseline
                    for i in range(len(labels) - 1))
     return {rule for rule in custom if not covered(rule)}
 
@@ -114,7 +117,7 @@ def build(raw_sources, root=ROOT):
             f'! Last modified: {now}',
             f'! Version: {now}',
             f'! Number of entries: {len(output)}',
-            '! No verified additions yet.' if not output else '! Reviewed custom domain rules:',
+            '! No verified additions yet.' if not output else '! User-supplied custom domain rules; app functionality not verified:',
         ]) + '\n'
         body = ''.join(rule + '\n' for rule in sorted(output))
         atomic_write(destination, (header + body).encode())

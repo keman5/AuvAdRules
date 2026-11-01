@@ -4,8 +4,8 @@
 **仅发布 AdRules（filter_29）和 HaGeZi Normal（filter_34）未覆盖的自定义增补规则，
 不复制两个基础列表。两端都应单独启用这两个基础订阅，再添加本补充订阅。**
 
-当前经过验证的增补为 **0 条**，所以 `filters/dns.txt` 仅含说明头。这是正常状态，
-不代表基础防护为空；基础防护由原订阅提供。没有为凑数封禁业务主域名。
+当前包含用户提供的 `dns_blocklist.txt` 中 **34 条**自定义规则，保留 `$important` 优先级。
+这些规则已通过语法与生成检查，尚未验证 App 广告效果和正常功能；其中含业务主域名封禁。
 
 推荐订阅地址（两端相同；GitHub Pages）：
 
@@ -22,7 +22,7 @@ https://raw.githubusercontent.com/keman5/AuvAdRules/main/filters/dns.txt
 两个地址发布相同规则，只订阅其中一个。Pages 发布可能比仓库提交晚数分钟；
 Raw 更新不依赖 Pages 部署完成，切换地址前应确认设备能下载。
 
-使用原生 `||domain^` / `@@||domain^` 语法，无仅限 A 查询的限制，适用于 A、AAAA
+使用原生 `||domain^` / `@@||domain^` 语法，可带 `$important`，无仅限 A 查询的限制，适用于 A、AAAA
 及其他 DNS 查询类型。IPv6 是否真正经过过滤，还取决于设备的 DNS 路由。
 不关闭 IPv6，不替换 DNS 服务器，不包含 URL Rewrite、MITM 或 Safari 元素规则。
 
@@ -31,7 +31,7 @@ Raw 更新不依赖 Pages 部署完成，切换地址前应确认设备能下载
 1. Home → 过滤器 → DNS 黑名单，分别启用以下基础订阅，再添加上面的补充订阅：
    - AdRules：`https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt`
    - HaGeZi Normal：`https://adguardteam.github.io/HostlistsRegistry/assets/filter_34.txt`
-   补充订阅当前显示 0 条是预期结果；若客户端拒绝空列表，可等有增补后再添加。
+   本次生成的补充订阅包含 34 条；后续数量以 `filters/manifest.json` 为准。
 2. Home 开启 DNS 过滤。路由器 DHCPv4 把 Home 的固定局域网地址下发为 DNS；
    或让所有客户端使用路由器、由路由器仅转发给 Home，避免循环转发。
 3. IPv6 RA 的 RDNSS／DHCPv6 DNS 也指向 Home 的稳定 IPv6 地址，或指向只转发给
@@ -67,9 +67,9 @@ GitHub Actions 每 12 小时检查上游，可手动运行；GitHub 可能延迟
 状态处理；客户端／Home 仍需按各自周期拉取。首次使用应手动更新并核对规则数量。
 
 - 基础列表由 Home／客户端自行更新，仓库下载它们仅用于覆盖比对，不发布其规则。
-- 自动去除与任一基础列表完全相同或已由父域名覆盖的同类域名规则；封禁与例外分开比对。
-  正则表达式和带修饰符的上游规则不做自动覆盖推断，新增时需补做实际引擎命中核验。
-- 修改 `rules/custom.txt`，只允许完整域名规则与例外。为每条新增封禁记录来源、App 版本、
+- 自动去除与任一基础列表完全相同或已由父域名覆盖的同类、同优先级域名规则；封禁与例外分开比对，普通规则不会去除 `$important` 规则。
+  正则表达式和带其他修饰符的上游规则不做自动覆盖推断，新增时需补做实际引擎命中核验。
+- 修改 `rules/custom.txt`，只允许完整域名规则与例外，可带 `$important`。为每条新增封禁记录来源、App 版本、
   新请求命中、A/AAAA 结果，以及登录、搜索、商品详情等功能回归。
 - `@@||needed.example.org^` 可作为误杀例外，影响范围包含该域名及子域名，需先核对。
 - 增补只接受严格域名语法，允许为空。基础列表下载返回 HTML、缺失、异常大小或基础域名

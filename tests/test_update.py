@@ -20,6 +20,22 @@ class UpdateTests(unittest.TestCase):
             with self.subTest(bad=bad), self.assertRaises(ValueError):
                 update.parse(bad)
 
+    def test_important_priority_is_preserved(self):
+        rules = {'||ads.example.org^$important', '@@||safe.example.org^$important'}
+        self.assertEqual(update.parse('\n'.join(rules)), rules)
+        baseline = {'||ads.example.org^', '@@||safe.example.org^'}
+        self.assertEqual(update.supplement(rules, baseline), rules)
+        baseline.add('||example.org^$important')
+        self.assertEqual(update.supplement(rules, baseline),
+                         {'@@||safe.example.org^$important'})
+        # A priority block must not remove an exception or a normal rule.
+        self.assertEqual(update.supplement({'||ads.example.org^'}, baseline - {'||ads.example.org^'}),
+                         {'||ads.example.org^'})
+        for bad in ['||ads.example.org^$important,dnstype=A',
+                    '||ads.example.org^$badfilter', '||ads.example.org^$important$important']:
+            with self.subTest(bad=bad), self.assertRaises(ValueError):
+                update.parse(bad)
+
     def test_large_change_is_rejected(self):
         with self.assertRaises(ValueError):
             update.validate_change(100, 69)

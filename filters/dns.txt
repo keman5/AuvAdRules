@@ -3,7 +3,41 @@
 ! Homepage: https://github.com/keman5/AuvAdRules
 ! License: GPL-3.0; see LICENSE and SOURCES.md
 ! Expires: 12 hours
-! Last modified: 2026-10-29T02:24:43Z
-! Version: 2026-10-29T02:24:43Z
-! Number of entries: 0
-! No verified additions yet.
+! Last modified: 2026-11-01T10:38:55Z
+! Version: 2026-11-01T10:38:55Z
+! Number of entries: 34
+! User-supplied custom domain rules; app functionality not verified:
+||adsmind.ugdtimg.com^$important
+||adtidy.org^$important
+||api-adservices.apple.com^$important
+||api.weibo.com^$important
+||babytreeimg.com.w.alikunlun.com^$important
+||cn-hangzhou.dualstack.log.aliyuncs.com^$important
+||cn-hangzhou.log.aliyuncs.com^$important
+||com.queniurc.com^$important
+||com.queniusz.com^$important
+||com.queniuyk.com^$important
+||ddxq.mobi^$important
+||everappz.com^$important
+||g-page-quic.gslb.ksyuncdn.com^$important
+||hubcloud.com.cn^$important
+||kexin001.com^$important
+||log1.cmpassport.com^$important
+||log2.cmpassport.com^$important
+||meitun.com^$important
+||monitor.babytree.com^$important
+||mssdk-bu.bytedance.com^$important
+||ntalker.com^$important
+||ntes53.netease.com^$important
+||pglstatp-toutiao.com^$important
+||pinduoduo.com^$important
+||queniuum.com^$important
+||rhdc-acs.m.taobao.com^$important
+||sched.dcloudstc.com^$important
+||sdk.beizi.biz^$important
+||sentry.io^$important
+||servicewechat.tc.qq.com^$important
+||sso.kuaidi100.com^$important
+||vwnti.yrzhcloud.cn^$important
+||waapdg.jd.com^$important
+||yun-hl.3g.qq.com^$important

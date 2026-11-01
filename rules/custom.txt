@@ -1,5 +1,40 @@
-! Reviewed additions beyond AdRules filter_29 and HaGeZi Normal filter_34.
-! Only domain rules: ||ads.example.org^ or exceptions: @@||needed.example.org^
-! Baseline-covered domains are removed when generating filters/dns.txt.
-! No logs, credentials, private hostnames or URL rewrite rules.
-! No device-verified additions yet. Enable both baseline subscriptions separately.
+! Custom additions beyond AdRules filter_29 and HaGeZi Normal filter_34.
+! Domain rules and exceptions may use $important; priority is preserved.
+! Only baseline coverage with the same rule type and priority is removed.
+! Source: user-provided dns_blocklist.txt, imported 2026-11-01.
+! Broad business-domain blocks are intentional user input; app behavior is not verified.
+! Enable both baseline subscriptions separately.
+||adsmind.ugdtimg.com^$important
+||adtidy.org^$important
+||api-adservices.apple.com^$important
+||api.weibo.com^$important
+||babytreeimg.com.w.alikunlun.com^$important
+||cn-hangzhou.dualstack.log.aliyuncs.com^$important
+||cn-hangzhou.log.aliyuncs.com^$important
+||com.queniurc.com^$important
+||com.queniusz.com^$important
+||com.queniuyk.com^$important
+||ddxq.mobi^$important
+||everappz.com^$important
+||g-page-quic.gslb.ksyuncdn.com^$important
+||hubcloud.com.cn^$important
+||kexin001.com^$important
+||log1.cmpassport.com^$important
+||log2.cmpassport.com^$important
+||meitun.com^$important
+||monitor.babytree.com^$important
+||mssdk-bu.bytedance.com^$important
+||ntalker.com^$important
+||ntes53.netease.com^$important
+||pglstatp-toutiao.com^$important
+||pinduoduo.com^$important
+||queniuum.com^$important
+||rhdc-acs.m.taobao.com^$important
+||sched.dcloudstc.com^$important
+||sdk.beizi.biz^$important
+||sentry.io^$important
+||servicewechat.tc.qq.com^$important
+||sso.kuaidi100.com^$important
+||vwnti.yrzhcloud.cn^$important
+||waapdg.jd.com^$important
+||yun-hl.3g.qq.com^$important

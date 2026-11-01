@@ -1,6 +1,6 @@
 {
   "mode": "supplement-only",
-  "checked_at_utc": "2026-11-01T06:25:36Z",
+  "checked_at_utc": "2026-11-01T10:41:09Z",
   "baselines": {
     "adrules": {
       "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt",
@@ -15,9 +15,9 @@
       "other_rules_not_compared": 0
     }
   },
-  "custom_rules": 0,
+  "custom_rules": 34,
   "already_covered_rules": 0,
-  "published_rules": 0,
-  "published_sha256": "914c21f276ca5bcbc297ff8a7cdb7d027abfbf8a9f0183a996f196670310ca76",
+  "published_rules": 34,
+  "published_sha256": "313432debd1efcd249361fb342b5447993240c6efbf7250671fec5976a4254fb",
   "device_ad_removal_verified": false
 }

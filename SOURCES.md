@@ -7,18 +7,24 @@ AdRules or HaGeZi Normal. Enable both baseline subscriptions independently:
 - HaGeZi Normal: https://adguardteam.github.io/HostlistsRegistry/assets/filter_34.txt
 
 The generator downloads those exact lists only to remove already-covered custom
-domains. Source URLs, hashes, plain domain counts and counts of other syntax are
+domains. Source URLs, hashes, supported domain rule counts and counts of other syntax are
 recorded in `filters/manifest.json`; baseline contents are not in the output.
-Exact and parent-domain matches of the same rule type are compared. Regex and
-modifier-based coverage must be checked in the DNS engine before adding rules.
+Exact and parent-domain matches of the same rule type and priority are compared.
+Only the optional $important modifier is supported; other modifiers and regex
+require DNS engine review.
 
 The scripts and custom additions are GPL-3.0; see `LICENSE`. Earlier commits
 published a full HaGeZi Normal copy under its GPL-3.0 license; that historical
 attribution remains applicable. HaGeZi's source acknowledgements are available
 in [its README](https://github.com/hagezi/dns-blocklists/blob/main/README.md).
 
-There are currently **no verified custom additions**. An empty supplement does
-not replace the baseline lists and does not add splash-ad coverage.
+On 2026-11-01, the user supplied `dns_blocklist.txt`: 34 unique domain rules, all
+with `$important`. They are retained in `rules/custom.txt` without changing their
+priority. Source SHA-256: `9dcf450adc2a8a041c2723f7b0d7e0c56bfe7ee173110541ef2fd0befdae6cd0`.
+These are user-supplied blocks, not independently verified ad-only domains.
+They include broad business domains such as `pinduoduo.com`, `api.weibo.com`,
+and `adtidy.org`; normal app/service functionality may be affected.
+The supplement does not replace the baseline lists.
 
 ## App-specific evidence
 
