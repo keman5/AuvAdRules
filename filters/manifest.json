@@ -1,17 +1,17 @@
 {
   "mode": "supplement-only",
-  "checked_at_utc": "2026-11-04T06:41:54Z",
+  "checked_at_utc": "2026-11-04T19:53:37Z",
   "baselines": {
     "adrules": {
       "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt",
-      "sha256": "2ab60f0b3f3091f04f48432643c1e88532c39611fcc2e81f62b4598fa6742230",
-      "domain_rules": 207873,
+      "sha256": "f9120b31943e745fdcc09e76e6d428e8ab356ef27c3e8b24051058120e1c5cf7",
+      "domain_rules": 208002,
       "other_rules_not_compared": 436
     },
     "hagezi": {
       "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_34.txt",
-      "sha256": "dcb0c5924ae35f9a312173e326528bdfbc4f0c5a233cc9d103e08ff166febb84",
-      "domain_rules": 179493,
+      "sha256": "5c39fd9fb6cb405c033fe27223b3fbb56cde42a9be9135ad75eebc87624d34a7",
+      "domain_rules": 195087,
       "other_rules_not_compared": 0
     }
   },
