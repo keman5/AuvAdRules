@@ -1,11 +1,11 @@
 {
   "mode": "supplement-only",
-  "checked_at_utc": "2026-11-11T19:43:47Z",
+  "checked_at_utc": "2026-11-12T07:25:17Z",
   "baselines": {
     "adrules": {
       "url": "https://adguardteam.github.io/HostlistsRegistry/assets/filter_29.txt",
-      "sha256": "6eb64e49d2c642c5b3f2f506024be926c78d894da47611066105c7fa16a3764a",
-      "domain_rules": 210085,
+      "sha256": "978bbf71ca040fa12b0ae342503747f788d0c0220124cf7daf6cf1aa5930ba79",
+      "domain_rules": 210235,
       "other_rules_not_compared": 435
     },
     "hagezi": {
